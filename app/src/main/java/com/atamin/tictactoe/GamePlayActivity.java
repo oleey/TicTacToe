@@ -1,5 +1,6 @@
 package com.atamin.tictactoe;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -7,8 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Aminat on 4/10/2018.
@@ -23,12 +27,20 @@ public class GamePlayActivity extends AppCompatActivity {
     Button button2, button3, button4, button5, button6, button7, button8, button9;
     TextView label;
     int playerX = 0;
+    Context context;
     int playerO = 0;
+    RelativeLayout gameBoard;
+    LinearLayout choosePlayer;
+    RadioButton xPlayerRadiobutton, oPlayerRadiobutton;
+    Boolean xPlayerChosen, oPlayerChosen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gameplay);
+        context = this;
+        gameBoard = (RelativeLayout) findViewById(R.id.game_board);
+//        choosePlayer = (LinearLayout) findViewById(R.id.choose_player_layout);
         label = (TextView) findViewById(R.id.moveTextView);
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
@@ -40,7 +52,16 @@ public class GamePlayActivity extends AppCompatActivity {
         button8 = (Button) findViewById(R.id.button8);
         button9 = (Button) findViewById(R.id.button9);
 
+//        xPlayerRadiobutton = (RadioButton) findViewById(R.id.x_player_chosen);
+//        xPlayerChosen = xPlayerRadiobutton.isChecked();
+//
+//        oPlayerRadiobutton = (RadioButton) findViewById(R.id.o_player_chosen);
+//        oPlayerChosen = oPlayerRadiobutton.isChecked();
+
+//        pickPlayer();
+
         setUpBoard();
+
     }
 
 //    //Even for when the user changes between going first and going second
@@ -54,22 +75,23 @@ public class GamePlayActivity extends AppCompatActivity {
 //
 //
 ////If the user wants to be X just clear the board and wait for his move
-//            case R.id.radio_X:
+//            case R.id.x_player_chosen:
 //
 //
 //                if (checked)
-//                    mark = "X"; aiMark = "O"; clear();
-//                break;
+////                    mark = "X"; aiMark = "O"; clear();
+////                    xMove = true;
+//                    break;
 //
 //
 ////If the user wants to be O's then clear the board and get the AI's opening move
-//            case R.id.radio_O:
+//            case R.id.o_player_chosen:
 //
 //
 //                if (checked)
-//                    mark = "O"; aiMark = "X"; clear();
-//                    getAIMove(board);
-//                break;
+////                    mark = "O"; aiMark = "X"; clear();
+////                getAIMove(board);
+//                    break;
 //
 //
 //        }
@@ -86,11 +108,29 @@ public class GamePlayActivity extends AppCompatActivity {
         displayForPlayerX(playerX);
     }
 
+    public void pickPlayer(){
+        if(xPlayerChosen) {
+            choosePlayer.setVisibility(View.GONE);
+            gameBoard.setVisibility(View.VISIBLE);
+
+            xMove = true;
+            label.setText("X Player Move");
+
+        }else if (oPlayerChosen){
+            choosePlayer.setVisibility(View.GONE);
+            gameBoard.setVisibility(View.VISIBLE);
+//            setUpBoard();
+            xMove = false;
+            label.setText("O Player Move");
+        }else{
+            Toast.makeText(context, "Pick a player", Toast.LENGTH_LONG).show();
+        }
+    }
+
     public void setUpBoard(){
         table = new int[3][3];
         xMove = true;
-        label.setText("X move");
-
+        label.setText("X Player Move");
         button1.setText("");
         button2.setText("");
         button3.setText("");
