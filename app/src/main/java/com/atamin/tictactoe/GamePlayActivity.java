@@ -30,9 +30,6 @@ public class GamePlayActivity extends AppCompatActivity {
     Context context;
     int playerO = 0;
     RelativeLayout gameBoard;
-    LinearLayout choosePlayer;
-    RadioButton xPlayerRadiobutton, oPlayerRadiobutton;
-    Boolean xPlayerChosen, oPlayerChosen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +37,6 @@ public class GamePlayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gameplay);
         context = this;
         gameBoard = (RelativeLayout) findViewById(R.id.game_board);
-//        choosePlayer = (LinearLayout) findViewById(R.id.choose_player_layout);
         label = (TextView) findViewById(R.id.moveTextView);
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
@@ -52,52 +48,8 @@ public class GamePlayActivity extends AppCompatActivity {
         button8 = (Button) findViewById(R.id.button8);
         button9 = (Button) findViewById(R.id.button9);
 
-//        xPlayerRadiobutton = (RadioButton) findViewById(R.id.x_player_chosen);
-//        xPlayerChosen = xPlayerRadiobutton.isChecked();
-//
-//        oPlayerRadiobutton = (RadioButton) findViewById(R.id.o_player_chosen);
-//        oPlayerChosen = oPlayerRadiobutton.isChecked();
-
-//        pickPlayer();
-
         setUpBoard();
-
     }
-
-//    //Even for when the user changes between going first and going second
-//    public void onRadioButtonClicked(View view) {
-////Is the button now checked?
-//        boolean checked = ((RadioButton) view).isChecked();
-//
-//
-////Check which radio button was clicked
-//        switch(view.getId()) {
-//
-//
-////If the user wants to be X just clear the board and wait for his move
-//            case R.id.x_player_chosen:
-//
-//
-//                if (checked)
-////                    mark = "X"; aiMark = "O"; clear();
-////                    xMove = true;
-//                    break;
-//
-//
-////If the user wants to be O's then clear the board and get the AI's opening move
-//            case R.id.o_player_chosen:
-//
-//
-//                if (checked)
-////                    mark = "O"; aiMark = "X"; clear();
-////                getAIMove(board);
-//                    break;
-//
-//
-//        }
-//
-//
-//    }
 
 
     public void reset(View view) {
@@ -106,25 +58,6 @@ public class GamePlayActivity extends AppCompatActivity {
         playerX = 0;
         displayForPlayer0(playerO);
         displayForPlayerX(playerX);
-    }
-
-    public void pickPlayer(){
-        if(xPlayerChosen) {
-            choosePlayer.setVisibility(View.GONE);
-            gameBoard.setVisibility(View.VISIBLE);
-
-            xMove = true;
-            label.setText("X Player Move");
-
-        }else if (oPlayerChosen){
-            choosePlayer.setVisibility(View.GONE);
-            gameBoard.setVisibility(View.VISIBLE);
-//            setUpBoard();
-            xMove = false;
-            label.setText("O Player Move");
-        }else{
-            Toast.makeText(context, "Pick a player", Toast.LENGTH_LONG).show();
-        }
     }
 
     public void setUpBoard(){
@@ -214,7 +147,6 @@ public class GamePlayActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.button1:
-//            button1.setText("X");
                 x=0;
                 y=0;
                 break;
@@ -275,7 +207,6 @@ public class GamePlayActivity extends AppCompatActivity {
             label.setText("X move");
         }
         checkResult();
-//        setUpBoard();
     }
 
     private void checkResult() {
@@ -448,8 +379,6 @@ public class GamePlayActivity extends AppCompatActivity {
             dlgAlert.create().show();
 
         }
-
-//        setUpBoard();
     }
 
 }

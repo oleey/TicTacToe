@@ -5,12 +5,21 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/play_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Play Game"/>
+        android:textColor="@color/colorAccent"
+        android:text="Start Game"/>
+    <Button
+        android:id="@+id/about_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:text="About The Developer"/>
 
 </LinearLayout>

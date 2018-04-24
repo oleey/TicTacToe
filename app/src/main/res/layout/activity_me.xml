@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_margin="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:scaleType="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/me"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:textSize="30sp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:text="Atanda Aminat Oluchi"/>
+        <TextView
+            android:textStyle="italic"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Android Developer"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/colorPrimary"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Connect with me on: "/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/phone_call"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/phone_call"/>
+            <ImageView
+                android:id="@+id/gmail"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/gmail"/>
+            <ImageView
+                android:layout_marginRight="5dp"
+                android:id="@+id/linkedn"
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:src="@drawable/linkedn"
+                android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/facebook_logo"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/facebook" />
+
+            <ImageView
+                android:id="@+id/github_logo"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/github" />
+            <ImageView
+                android:id="@+id/twitter_logo"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/twitter" />
+            <ImageView
+                android:id="@+id/instagram_logo"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:src="@drawable/instagram" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

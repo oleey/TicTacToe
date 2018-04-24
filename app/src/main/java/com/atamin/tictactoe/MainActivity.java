@@ -10,7 +10,7 @@ import android.widget.RadioButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button play;
+    Button play, about;
     Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +19,18 @@ public class MainActivity extends AppCompatActivity {
         context = this;
 
         play = (Button) findViewById(R.id.play_button);
+        about = (Button) findViewById(R.id.about_button);
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, GamePlayActivity.class);
+                startActivity(intent);
+            }
+        });
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, MeActivity.class);
                 startActivity(intent);
             }
         });
